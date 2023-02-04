@@ -1,0 +1,19 @@
+<ion-header [translucent]="true" mode="ios" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      Favoritos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" mode="ios" class="ion-no-border">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Favoritos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-articles *ngIf="getArticles.length > 0" [articles] = 'getArticles' class="animate__animated animate__fadeIn"></app-articles>
+
+  <app-explore-container *ngIf="getArticles.length === 0" class="animate__animated animate__fadeIn"></app-explore-container>
+</ion-content>

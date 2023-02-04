@@ -1,0 +1,86 @@
+<ion-header [translucent]="true" mode="ios" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Categorías</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" mode="ios" class="ion-no-border">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Categorías</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-segment
+    [value]="selectedCategory"
+    (ionChange)="segmentChanged($event)"
+    mode="md"
+    scrollable
+  >
+    <ion-segment-button [value]="category" *ngFor="let category of categories">
+      <ion-label class="ion-text-capitalize">{{category}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <app-articles [articles]="articles" class="animate__animated animate__fadeIn"> </app-articles>
+
+  <ion-infinite-scroll threshold="10%" 
+                      position="bottom"
+                      (ionInfinite)="loadData()">
+    <div class="infinite-scroll-content">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 100 100"
+        enable-background="new 0 0 100 100"
+        xml:space="preserve"
+      ><circle
+          fill="none"
+          stroke="#1b6dff"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          cx="50"
+          cy="50"
+          r="48"
+        /><line
+          fill="none"
+          stroke-linecap="round"
+          stroke="#1b6dff"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          x1="50"
+          y1="50"
+          x2="85"
+          y2="50.5"
+        ><animateTransform
+            attributeName="transform"
+            dur="2s"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            repeatCount="indefinite"
+          /></line><line
+          fill="none"
+          stroke-linecap="round"
+          stroke="#1b6dff"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          x1="50"
+          y1="50"
+          x2="49.5"
+          y2="74"
+        ><animateTransform
+            attributeName="transform"
+            dur="15s"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            repeatCount="indefinite"
+          /></line>
+      </svg>
+    </div>
+  </ion-infinite-scroll>
+</ion-content>
