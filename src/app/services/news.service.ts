@@ -4,7 +4,6 @@ import { Observable, of } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 import { Article, NewsResponse, ArticlesByCategoryAndPage } from "../interfaces";
-import { storedArticlesByCategory } from "../data/mock-news";
 
 
 const apiKey = environment.apiKey;                                                         //* El apiKey se encuentra en el archivo 'environment.ts' en la ruta: (src\environments\environment.ts)
@@ -15,7 +14,7 @@ const apiUrl = environment.apiUrl;                                              
 })
 export class NewsService {
 
-  private articlesByCategoryAndPage: ArticlesByCategoryAndPage = storedArticlesByCategory;
+  private articlesByCategoryAndPage!: ArticlesByCategoryAndPage;
 
   private executeQuery<T>( endpoint: string ) {
     console.log('Petición HTTP realizada')
@@ -36,8 +35,6 @@ export class NewsService {
   }
 
   getTopHeadlinesByCategory( category: string, loadMore: boolean = false ): Observable<Article[]> {
-
-    return of(this.articlesByCategoryAndPage[category].articles);                           //* Esto se puede borrar luego
 
     if ( loadMore ) {
       return this.getArticlesByCategory( category );

@@ -6,17 +6,17 @@ export interface NewsResponse {
 
 export interface Article {
     source:        Source;
-    author?:       string | null;
+    author?:       string;
     title:         string;
-    description?:  string | null;
+    description?:  string;
     url:           string;
-    urlToImage?:   string | null;
-    publishedAt:   Date | string;
-    content?:      string | null;
+    urlToImage?:   string;
+    publishedAt:   Date;
+    content?:      string;
 }
 
 export interface Source {
-    id?:  string | null;
+    id?:  string;
     name: string;
 }
 
