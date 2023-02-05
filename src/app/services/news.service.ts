@@ -14,7 +14,7 @@ const apiUrl = environment.apiUrl;                                              
 })
 export class NewsService {
 
-  private articlesByCategoryAndPage!: ArticlesByCategoryAndPage;
+  private articlesByCategoryAndPage: ArticlesByCategoryAndPage = {};
 
   private executeQuery<T>( endpoint: string ) {
     console.log('Petición HTTP realizada')
