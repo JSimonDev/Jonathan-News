@@ -16,8 +16,7 @@
     (ionChange)="segmentChanged($event)"
     mode="md"
     scrollable
-  >
-    <ion-segment-button [value]="category" *ngFor="let category of categories">
+  ><ion-segment-button [value]="category" *ngFor="let category of categories">
       <ion-label class="ion-text-capitalize">{{category}}</ion-label>
     </ion-segment-button>
   </ion-segment>
