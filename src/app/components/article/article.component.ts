@@ -20,7 +20,6 @@ export class ArticleComponent implements OnInit {
   date!: string;
 
   constructor( private actionSheetCtrl: ActionSheetController,
-              private platform: Platform,
               private storageService: StorageService,
               private toastCtrl: ToastController) {}
 
